@@ -7,6 +7,11 @@ body {
     /* Rich glassmorphism-style gradient background */
     background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
     background-attachment: fixed;
+    transition: background 0.5s ease;
+}
+
+body.dark {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
 }
 
 /* Base Animations */
@@ -26,9 +31,25 @@ body {
     animation: fadeInUp 0.8s ease-out forwards;
 }
 
-.delay-100 { animation-delay: 100ms; }
-.delay-200 { animation-delay: 200ms; }
-.delay-300 { animation-delay: 300ms; }
+/* Custom JS Scroll Animations */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-animate.fade-down {
+    transform: translateY(-30px);
+}
+
+.scroll-animate.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-100 { transition-delay: 100ms; animation-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; animation-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; animation-delay: 300ms; }
 
 /* Micro-animations */
 .hover-lift {
